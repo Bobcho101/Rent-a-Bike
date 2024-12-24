@@ -1,6 +1,12 @@
 import { html, renderInMain } from "../lib/lit-html.js";
+import app from '../firebase/firebase-config.js';
+import { auth } from '../firebase/firebase-config.js';
+import { getAuth } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+import { createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js';
+import { saveUserData } from "../utils/userUtils.js";
+import { takenEmailAlert } from "../utils/alerts.js";
 
-const template = () => html`
+const template = (onSubmit) => html`
        <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
   <div class="sm:mx-auto sm:w-full sm:max-w-sm">
     <img class="mx-auto h-10 w-auto" src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company">
@@ -8,7 +14,7 @@ const template = () => html`
   </div>
 
   <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-    <form class="space-y-6" action="#" method="POST">
+    <form @submit=${onSubmit} class="space-y-6" action="#" method="POST">
       <div>
         <label for="email" class="block text-sm/6 font-medium text-gray-900">Email address</label>
         <div class="mt-2">
@@ -43,5 +49,25 @@ const template = () => html`
 
 
 export default async function signInView(ctx) {
-    renderInMain(template());
+    renderInMain(template(signInSubmitHandler));
+}
+
+async function signInSubmitHandler(e) {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const email = formData.get('email');
+    const password = formData.get('password');
+
+    if(password.length < 6) return alert('Password must be at least 6 characters!');
+
+    try{
+        const userCreditental = await createUserWithEmailAndPassword(auth, email, password);
+        console.log(userCreditental);
+        const accessToken = userCreditental.user.accessToken;
+        const uid = userCreditental.user.uid;
+        saveUserData(accessToken, email, uid);
+    } catch(err){
+        console.log(err.message);
+        alert(takenEmailAlert);
+    }
 }

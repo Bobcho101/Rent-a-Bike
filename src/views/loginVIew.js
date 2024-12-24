@@ -3,6 +3,8 @@ import { html, renderInMain } from "../lib/lit-html.js";
 import { auth } from '../firebase/firebase-config.js';
 import { getAuth } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
 import { signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js';
+import { saveUserData } from '../utils/userUtils.js';
+import { wrongEmailOrPasswordAlert } from '../utils/alerts.js';
 
 const template = (onSubmit) => html`
 <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
@@ -55,16 +57,16 @@ async function loginSubmitHandler(e) {
     const formData = new FormData(e.currentTarget);
     const email = formData.get('email');
     const password = formData.get('password');
-    
-    try{
-       
-        const userCreditental = await signInWithEmailAndPassword(auth, email, password);
-        console.log(userCreditental);
-        
-    } catch(err){
-        console.log(err.message);
-    }
-    
 
     
+    try{
+        const userCreditental = await signInWithEmailAndPassword(auth, email, password);
+        console.log(userCreditental);
+        const accessToken = userCreditental.user.accessToken;
+        const uid = userCreditental.user.uid;
+        saveUserData(accessToken, email, uid)
+    } catch(err){
+        console.log(err.message);
+        alert(wrongEmailOrPasswordAlert);
+    }
 }
