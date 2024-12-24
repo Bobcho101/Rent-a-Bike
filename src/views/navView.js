@@ -1,6 +1,6 @@
 import { html, renderInHeader } from "../lib/lit-html.js";
 
-const template = () => html`
+const template = (isUser) => html`
 <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div class="flex lg:flex-1">
           <a href="/" class="-m-1.5 p-1.5">
@@ -16,13 +16,23 @@ const template = () => html`
             </svg>
           </button>
         </div>
+        ${isUser
+            ? html`<div class="hidden lg:flex lg:gap-x-12">
+          <a href="/dashboard" class="text-sm/6 font-semibold text-gray-900">Rent a Bike</a>
+        </div>
+        <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+          <a href="/logout" class="text-sm/6 font-semibold text-gray-900">Log out<span aria-hidden="true">&rarr;</span></a>
+        </div>`
+            : html`
         <div class="hidden lg:flex lg:gap-x-12">
           <a href="/dashboard" class="text-sm/6 font-semibold text-gray-900">Rent a Bike</a>
           <a href="/sign-in" class="text-sm/6 font-semibold text-gray-900">Sign-in</a>
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
           <a href="/login" class="text-sm/6 font-semibold text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a>
-        </div>
+        </div>`
+        }
+        
       </nav>
       <!-- Mobile menu, show/hide based on menu open state. -->
       <div class="lg:hidden" role="dialog" aria-modal="true">
@@ -59,5 +69,8 @@ const template = () => html`
 `;
 
 export default async function navView(ctx) {
-    renderInHeader(template());
+    const accessToken = !!localStorage.getItem('accessToken');
+    console.log(accessToken);
+    
+    renderInHeader(template(accessToken));
 }

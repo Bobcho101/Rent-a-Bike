@@ -5,6 +5,7 @@ import { getAuth } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth
 import { createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js';
 import { saveUserData } from "../utils/userUtils.js";
 import { takenEmailAlert } from "../utils/alerts.js";
+import page from "../lib/page.js";
 
 const template = (onSubmit) => html`
        <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
@@ -66,6 +67,7 @@ async function signInSubmitHandler(e) {
         const accessToken = userCreditental.user.accessToken;
         const uid = userCreditental.user.uid;
         saveUserData(accessToken, email, uid);
+        page.redirect('/');
     } catch(err){
         console.log(err.message);
         alert(takenEmailAlert);
