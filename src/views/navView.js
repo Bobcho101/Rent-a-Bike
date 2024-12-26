@@ -70,7 +70,5 @@ const template = (isUser) => html`
 
 export default async function navView(ctx) {
     const accessToken = !!localStorage.getItem('accessToken');
-    console.log(accessToken);
-    
     renderInHeader(template(accessToken));
 }
