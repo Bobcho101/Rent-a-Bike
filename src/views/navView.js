@@ -20,6 +20,9 @@ const template = (isUser) => html`
             ? html`<div class="hidden lg:flex lg:gap-x-12">
           <a href="/dashboard" class="text-sm/6 font-semibold text-gray-900">Rent a Bike</a>
         </div>
+        <div class="hidden lg:flex lg:gap-x-12 needgap">
+          <a href="/sell-bike" class="text-sm/6 font-semibold text-gray-900">Sell a Bike</a>
+        </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
           <a href="/logout" class="text-sm/6 font-semibold text-gray-900">Log out<span aria-hidden="true">&rarr;</span></a>
         </div>`

@@ -1,0 +1,18 @@
+.bikes-img{
+    width: 15em;
+    height: 12em;
+}
+#bikes-container{
+    display: flex;
+    padding: 3em 4em;
+    flex-wrap: wrap;
+    justify-content: left;
+    gap:5em;
+}
+.bike-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    border: 2px solid black;
+}
