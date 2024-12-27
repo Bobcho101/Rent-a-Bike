@@ -62,7 +62,6 @@ async function loginSubmitHandler(e) {
     
     try{
         const userCreditental = await signInWithEmailAndPassword(auth, email, password);
-        console.log(userCreditental);
         const accessToken = userCreditental.user.accessToken;
         const uid = userCreditental.user.uid;
         saveUserData(accessToken, email, uid);
