@@ -51,11 +51,14 @@ async function sellBikeSubmitHandler(e) {
     try{
         const dbRef = ref(database, "Bikes");
         const newItemRef = push(dbRef);
+        const itemID = newItemRef.key;
+        
         const response = await set(newItemRef, {
             model,
             imageUrl,
             price,
-            ownerID: userID
+            ownerID: userID,    
+            itemID
         });
         if(response !== undefined) return alert(somethingWentWrongAlert);
         page.redirect('/dashboard');

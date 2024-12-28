@@ -1,6 +1,7 @@
 .bikes-img{
     width: 15em;
     height: 12em;
+    border-bottom: 2px solid black;
 }
 #bikes-container{
     display: flex;
@@ -13,6 +14,21 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    cursor: pointer;
     border: 2px solid black;
+    gap:0.5em;
+    padding: 1em 2em;
+}
+.more-info{
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.2em;
+    padding: 0.3em 2em;
+    transition: 0.3s;
+}
+.more-info:hover{
+    background-color: black;
+    color: white;
+    transition: 0.3s;
 }

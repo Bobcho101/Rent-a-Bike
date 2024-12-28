@@ -8,7 +8,8 @@ const template = (bikes) => html`
         <div class="bike-box"> 
             <img class="bikes-img" src="${bike.imageUrl}"> 
             <h1>${bike.model}</h1>
-            <h2>${bike.price}.00 BGN p/d</h2>
+            <h2>${bike.price} BGN p/d</h2>
+            <a class="more-info" href="/dashboard/${bike.itemID}/details"><button>More Info</button></a>
          </div>`)} 
     </div>
 `;
@@ -20,12 +21,10 @@ export default async function dashboardView(ctx) {
 }
 
 async function getBikesFromData() {
-    
     try{
         const dbRef = ref(database, "Bikes");
         const res = await get(dbRef);
         const data = await res.val();   
-         
         return Object.values(data);
     } catch(err){
         console.log(err.message);

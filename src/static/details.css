@@ -1,0 +1,26 @@
+#bike-container{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    transform: translateX(-50%);
+    border: 2px solid black;
+    padding: 5em;
+}
+#bike-container img{
+    width: 19em;
+    height: 15em;
+}
+#info-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.8em;
+}
+#info-box h1{
+    font-weight: bolder;
+}
+#info-box h2{
+    font-size: 0.6em;
+}
