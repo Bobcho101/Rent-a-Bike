@@ -1,0 +1,41 @@
+#form-container{
+    display: flex;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 3em 4em 2em 4em;
+    margin-top: 8em;
+    border: 2px solid black;
+    width: fit-content;
+}
+
+#sell-bike-form{
+    display: flex;
+    flex-direction: column;
+    align-items:flex-end;
+    gap:0.5em;
+}
+#sell-bike-form input{
+    color: black;
+    border: 2px solid black;
+    border-radius: 0.3em;
+    padding: 2px;
+}
+.sell-bike-form-el{
+    display: flex;
+    align-items: center;
+    gap:2em;
+}
+#sell-bike-form button[type="submit"]{
+    align-self: center;
+    border: 2px solid black;
+    margin-top: 3em;
+    padding: 4px 50px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+#sell-bike-form button[type="submit"]:hover{
+    background-color: black;
+    color: white;
+    transition: 0.3s;
+}
