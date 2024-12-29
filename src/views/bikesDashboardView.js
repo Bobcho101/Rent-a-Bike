@@ -15,6 +15,7 @@ const template = (bikes) => html`
 `;
 
 export default async function dashboardView(ctx) {
+    renderInMain(html`<div class="lds-ring"><div></div><div></div><div></div><div></div></div>`);
     const bikes = await getBikesFromData();
 
     renderInMain(template(bikes));

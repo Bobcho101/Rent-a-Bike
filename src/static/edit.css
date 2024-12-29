@@ -1,0 +1,34 @@
+#edit-container{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 2px solid #000000;
+    padding: 5em;
+    top:30%;
+}
+#edit-form{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 0.3em;
+}
+#edit-form button{
+    align-self: center;
+    border: 2px solid black;
+    padding: 0.1em 1.5em;
+    margin-top: 3%;
+    transition: 0.3s;
+}
+#edit-form button:hover{
+    color: white;
+    background-color: black;
+    transition: 0.3s;
+}
+.form-el{
+    display: flex;
+    gap:1em;
+}
+.form-el input{
+    border: 2px solid black;
+    padding: 0.1em;
+}

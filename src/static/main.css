@@ -1,6 +1,7 @@
 @import url(dashboard.css);
 @import url(sell-bike.css);
 @import url(details.css);
+@import url(edit.css);
 *{
     margin: 0;
     padding: 0;

@@ -6,7 +6,8 @@
     top: 30%;
     transform: translateX(-50%);
     border: 2px solid black;
-    padding: 5em;
+    padding: 4em 0 4em 4em;
+    gap:3em;
 }
 #bike-container img{
     width: 19em;
@@ -23,4 +24,39 @@
 }
 #info-box h2{
     font-size: 0.6em;
+}
+
+#edit-btn, #delete-btn{
+    border: 2px solid black;
+    padding: 0 1em;
+    transition: 0.3s;
+    border-radius: 0.5em;
+}
+#edit-btn:hover, #delete-btn:hover{
+    background-color: black;
+    color: white;
+    transition: 0.3s;
+}
+#crud-box{
+    margin-top: 2em;
+    display: flex;
+    gap:1em;
+}
+#container-and-back-button{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2em;
+}
+#container-and-back-button button{
+    border: 2px solid black;
+    padding: 0.3em 1em;
+    transition: 0.3s;
+    border-radius: 0.5em;
+}
+#container-and-back-button button:hover{
+    color: white;
+    background-color: black;
+    transition: 0.3s;
 }
