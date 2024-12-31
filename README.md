@@ -7,3 +7,4 @@ dont judge the desing pls that was not the main goal of this app. The main goal 
 I used lit html for rendering and page js for routing
 
 when you try to run the app if it is throwing an error type in the terminal 'npm install page' and 'npm install lit html'
+the hosted version is bundled and i dont know why the bundeled version is doesnt show on github after it was uploaded (maybe it is getting ignored)
