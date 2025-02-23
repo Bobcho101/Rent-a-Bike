@@ -31,10 +31,10 @@ This is project called Rent a Bike. This project's main goal was to learn how to
 - **pagejs**: *Routing*
 
 ## Functionality
-1. Authentication (register and login)
-2. Create a post (only if user)
+1. Authentication (*register and login*)
+2. Create a post (*only if user*)
 3. Every post has a detailed view
-4. You can edit and delete a post (only if owner)
+4. You can edit and delete a post (*only if owner*)
 
 
 ## Notes
