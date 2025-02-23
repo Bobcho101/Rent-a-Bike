@@ -19,7 +19,7 @@ This is project called Rent a Bike. This project's main goal was to learn how to
 
 ## Tech Stack
 - **lit-html**: *Rendering*
-- **pagejs**: *Routing*
+- **page.js**: *Routing*
 
 ## Functionality
 1. Authentication (*register and login*)
