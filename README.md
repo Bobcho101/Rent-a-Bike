@@ -39,4 +39,5 @@ This is project called Rent a Bike. This project's main goal was to learn how to
 
 ## Notes
 - Please don't judge the design, that was not the main point!!!
+- The register and login's tailwind templates are glitched (idk why)
 
